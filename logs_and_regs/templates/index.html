@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login And Registration</title>
+  </head>
+  <body>
+
+    <h2>Create An Account</h2>
+    <form action="/form" method="post">
+
+      <label for="first_name">First Name:</label><input type="text" name="first_name"><br>
+
+      <label for="last_name">Last Name: </label><input type="text" name="last_name"><br>
+
+      <label for="email">Email: </label><input type="text" name="email"><br>
+
+      <label for="password">Password: </label><input type="text" name="password"><br>
+
+      <label for="verify_password">Verify Password: </label><input type="text" name="verify_password"><br>
+      <input type="submit" value="submit">
+
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: red">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h2>Log In</h2>
+    <form action="/logIn" method="post">
+      <label for="log_email">Email: </label><input type="text" name="log_email"><br>
+
+      <label for="log_password">Password: </label><input type="text" name="log_password"><br>
+
+      <input type="submit" value="submit">
+    </form>
+  </body>
+</html>

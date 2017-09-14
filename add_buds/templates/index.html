@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Friends</title>
+  </head>
+  <body>
+    <h1>These are all my friends!</h1>
+<!-- with all the data we can then construct a more structured output -->
+  {% for user in all_friends: %}
+     <p>Name: {{ user['name'] }}</p>
+     <p>Age: {{ user['age'] }}</p>
+     <p>Friends Since: {{user['created_at']}}</p>
+     <hr>
+  {% endfor %}
+
+  <h2>Add a Friend</h2>
+  <form action='/users' method='POST'>
+    <label for="name">Name:<input type="text" name="name" id="name"></label>
+    <label for="age">Age:<input type="text" name="age" id="age"></label>
+    <input type="submit" value="Add">
+  </form>
+  </body>
+</html>
