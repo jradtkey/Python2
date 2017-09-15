@@ -1,0 +1,19 @@
+#messages{
+  display: inline-block;
+  outline: 1px dotted black;
+  width: 75%;
+  margin-left: 7%;
+  box-shadow: 10px 10px 5px #888;
+}
+#comments{
+  display: inline-block;
+  text-align: right;
+  outline: 1px dotted black;
+  margin-bottom: 20px;
+  margin-left: 40%;
+}
+
+.post{
+  margin-left: 7%;
+  margin-bottom: 20px;
+}
