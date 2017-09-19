@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Session Words</title>
+    <style media="screen">
+    .left {
+      width: 48%;
+      height: 300px;
+      border-right: 1px solid black;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .right{
+      width: 48%;
+      height: 300px;
+      border-left: 1px solid black;
+      display: inline-block;
+      overflow: scroll;
+    }
+    .red{
+      color: red;
+    }
+    
+    .green{
+      color: green;
+    }
+
+    .blue{
+      color: blue;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div class="left">
+
+      <form action="/session_words/process" method="post">
+
+  	    {% csrf_token %}
+
+  	    <h3>Add a new word: </h3>
+        <input type="text" name="word" value=""><br>
+
+        <h3>Choose a color:</h3>
+        <select name="color">
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select><br><br>
+
+        <input type="radio" name="big">Show in BIG fonts!<br><br>
+        <input type="submit" name="" value="Add to Session">
+
+      </form>
+
+    </div>
+
+    <div class="right">
+      {% if request.session.color == 'red' %}
+      {% for word in request.session.word %}
+        <p class="{{request.session.color}}">{{word}}</p>
+      {% endfor %}
+      {% endif %}
+
+      {% if request.session.color == 'green' %}
+      {% for word in request.session.word %}
+        <p class="{{request.session.color}}">{{word}}</p>
+      {% endfor %}
+      {% endif %}
+
+      {% if request.session.color == 'blue' %}
+      {% for word in request.session.word %}
+        <p class="{{request.session.color}}">{{word}}</p>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <br>
+
+  </body>
+</html>

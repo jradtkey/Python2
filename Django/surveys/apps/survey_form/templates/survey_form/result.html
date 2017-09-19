@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .submitted{
+        width: 20%;
+        margin-left: 40%;
+        background-color: #84ff98;
+      }
+      .output{
+        width: 20%;
+        margin-left: 40%;
+        background-color: #fffdea;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="submitted">
+      <p>Thanks for submitting this form! You have submitted this form {{ request.session.tries }} times now.</p>
+    </div>
+    <div class="output">
+      <h2>Name: </h2><h3>{{request.session.name}}</h3><br>
+      <h2>Location: </h2><h3>{{request.session.location}}</h3><br>
+      <h2>Language: </h2><h3>{{request.session.language}}</h3><br>
+      <h2>Comments: </h2><h3>{{request.session.comments}}</h3><br>
+    </div>
+  </body>
+</html>
