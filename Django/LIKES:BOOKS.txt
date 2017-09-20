@@ -1,0 +1,52 @@
+LIKES/BOOKS ASSIGNMENT
+* Create 3 different user accounts  -  
+>>> User.objects.create(first_name="Stew", last_name="Blew", email="stew@go.com") #
+
+* Have the first user create 2 books  - 
+>>>Book.objects.create(name="Mouse Book", desc="Dope book about mice", uploader_id=1) #
+
+* Have the second user create 2 other books  -  
+>>>Book.objects.create(name="Water Book", desc="Dope book about water", uploader_id=2) #
+
+* Have the third user create 2 other books  -  
+>>>Book.objects.create(name="Missing Shirts", desc="Dope book about tanktops", uploader_id=3) #
+
+* Have the first user like the last book and the first book  - 
+>>>a = User.objects.get(id=1)
+>>>b = Book.objects.first()
+>>>b.liked_books.add(a)
+>>>b = Book.objects.last()
+>>>b.liked_books.add(a)
+
+* Have the second user like the first book and the third book
+
+* Have the third user like all books  -  
+>>> a = User.objects.get(id=3)
+>>> b = Book.objects.get(id=1)
+>>> b.liked_books.add(a)
+>>> b = Book.objects.get(id=2)
+>>> b.liked_books.add(a)
+>>> b = Book.objects.get(id=3)
+>>> b.liked_books.add(a)
+>>> b = Book.objects.get(id=4)
+>>> b.liked_books.add(a)
+>>> b = Book.objects.get(id=5)
+>>> b.liked_books.add(a)
+>>> b = Book.objects.get(id=6)
+>>> b.liked_books.add(a)
+
+* Display all users who like the first book
+>>> b = Book.objects.get(id=1)
+>>> b.liked_books.all()
+
+* Display the user who uploaded the first book
+>>> b = Book.objects.get(id=1)
+>>> b.uploader_id
+
+* Display all users who like the second book
+>>> b = Book.objects.get(id=2)
+>>> b.liked_books.all()
+
+* Display the user who uploaded the second book
+>>> b = Book.objects.get(id=2)
+>>> b.uploader_id
