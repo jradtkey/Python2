@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+      body {
+        margin-left: 5%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Edit User {{users.id}}</h1>
+
+    <form action="/semiRestfulUsers/submit/{{users.id}}" method="post">
+      {% csrf_token %}
+      <label>Full Name:</label><p> </p><input type="text" name="full_name"><br><br>
+      <label>Email:</label><p> </p><input type="text" name="email"><br><br>
+      <input type="submit" name="" value="Edit"><br><br>
+
+    </form>
+
+    {% for message in messages %}
+      <li style="color:red">{{message}}</li>
+    {% endfor %}
+
+    <a href="/">Go Back</a>
+
+  </body>
+</html>
